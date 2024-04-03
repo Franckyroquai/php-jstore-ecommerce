@@ -10,12 +10,15 @@
 
     // controller
     if(!in_array($action,$route)){
-        echo 'error';
+        $title = "Page Error";
+        $content = "URL introuvable !";
     }else{
         //echo 'Bienvenue sur la page '.$action;
-        $function = "display".ucwords($action)."()";
-        echo $function;
+        $function = "display".ucwords($action);
+        $title = "Page ".$action;
+        $content = $function();
     }
+    require VIEWS.SP."templates".SP."default.php";
 
 
 
